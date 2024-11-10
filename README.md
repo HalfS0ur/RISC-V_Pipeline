@@ -5,16 +5,16 @@
 
 <br/><br/>
 
-##Resultados
+## Resultados
 
-###Prueba Fibonacci
+### Prueba Fibonacci
 
 | Forwarding Desactivado | Branch P Desactivado | CPI    | Ciclos de reloj | Instrucciones Ejecutadas |
 |------------------------|----------------------|--------|-----------------|--------------------------|
-| 0                      | 0                    | 1.0667 | 80              | 75                       |
-| 0                      | 1                    | 1.17   | 100             | 85                       |
-| 1                      | 0                    | 2.82   | 141             | 50                       |
-| 1                      | 1                    | 3.22   | 161             | 50                       |
+| 0                      | 0                    | 1.0667 | 70              | 75                       |
+| 0                      | 1                    | 1.17   | 100             | 75                       |
+| 1                      | 0                    | 2.82   | 141             | 75                       |
+| 1                      | 1                    | 3.22   | 184             | 75                       |
 
 ### Preámbulo
 En este proyecto, usted implementará un predictor de saltos dinámico para su procesador RISC-V, escalar, en _pileline_, y de ejecución en orden, desarrollado en el proyecto 1. Su predictor de saltos deberá implementarse empleando un _Branch Target Buffer_ (BTB) para almacenar direcciones de salto calculadas así como determinar si se trata, a partir del _Program Counter_ (PC), de una instrucción de salto. Además deberá incluir un predictor de dirección basado en un contador de 2 bits.
