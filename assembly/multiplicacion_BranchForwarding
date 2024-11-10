@@ -1,0 +1,80 @@
+addi t1, zero, 4 # valor
+addi t2, zero, 3 # multiplicador
+addi t3, zero, 0 # comparador de 0
+addi t4, zero, 1 # restador
+addi t5, zero, 0 # resultado
+addi s1, zero, 3 # a
+
+#branch 
+Mul:
+	add t5, t1, t5
+	sub t2, t2, t4
+	beq t2, zero, Serie
+	beq t3, zero, Mul
+	
+	
+#forwarding y branch
+Serie:
+	# x = t5
+	# y = 6
+	# z = 3
+	# sumatoria de 0 a 3 (x + y - z)
+	# se repite unas n veces
+	
+	addi t3, zero, 3 # z
+	addi t2, zero, 6 # y
+	addi t6, zero, 1 
+	
+	add t5, zero, t5 # x
+	add t5, t5, t2   # x + y  
+	sub t5, t5, t3   # x + y - z
+	
+	sub s1, s1, t6   # a - 1
+	
+	beq s1, zero, sumab
+	beq, zero, zero, Serie
+	
+#branch
+
+sumab:
+	addi t2, zero, 3 # multiplicador 
+	addi t2, t2, 1
+	add t1, zero, t5
+
+#multiplicar t5 por t2, multiplicar 21 * 5 = 105 o 69(hex)
+Mulb:
+	add t5, t5, t1
+	sub t2, t2, t4
+	beq t2, zero, sumac
+	beq zero, zero, Mulb
+	
+#branch
+
+sumac:
+	addi t2, zero, 3 # multiplicador
+	addi t2, t2, 2
+	add t1, zero, t5
+
+# t5 * t2 = 105 * 6 = 630
+Mulc:
+	add t5, t5, t1
+	sub t2, t2, t4
+	beq t2, zero, sumad
+	beq zero, zero, Mulc
+	
+#branch 
+
+sumad:
+	addi t2, zero, 3 # multiplicador
+	addi t2, t2, 3
+	add t1, zero, t5
+	
+# t5 * t2 = 630 * 7 = 4410 (113a hex)	
+Muld:
+	add t5, t5, t1
+	sub t2, t2, t4
+	beq t2, zero, Exit
+	beq zero, zero, Muld
+	
+Exit:
+	add t5, zero, t5
